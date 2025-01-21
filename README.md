@@ -1,2 +1,2 @@
 # portfolio-site
-portfolio website aimed to showcase my experience, skills, and interests
+Personal portfolio website project aimed to showcase my experience, skills, and interests.
