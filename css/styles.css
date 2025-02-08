@@ -1,42 +1,72 @@
-* {
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100..900&display=swap");
+
+:root {
+  --text-color: #333;
+  --bg-color: white;
+  --border-color: black;
+  --hover-bg: black;
+  --hover-text: white;
+}
+
+[data-theme="dark"] {
+  --text-color: white;
+  --bg-color: #111;
+  --border-color: white;
+  --hover-bg: white;
+  --hover-text: black;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 html,
 body {
   height: 100%;
-  font-family: sans-serif;
-  color: #333;
+  min-height: 100vh;
+  font-family: "Noto Sans", sans-serif;
+  overflow-y: auto;
+  scroll-behavior: smooth;
 }
 
 body {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+}
+
+header,
+footer,
+main {
+  border-color: var(--border-color);
 }
 
 header {
   padding: 10px;
-  border-bottom: black 2px solid;
+  font-size: 24px;
+  border-bottom: 2px solid;
   letter-spacing: -2px;
   text-align: center;
-  line-height: 1.25
+  line-height: 1.25;
 }
 
-header>p {
+header > p {
+  cursor: pointer;
   display: inline-block;
-  transition: letter-spacing 0.2s ease-in-out, font-weight 0.3s ease-in-out;
-  font-size: 24px;
   font-weight: bolder;
   text-transform: lowercase;
   margin: 5px 0;
   padding: 0 5px;
-  border: black 2px solid
+  border: 2px solid;
+  transition: letter-spacing 0.2s ease-in-out, font-weight 0.3s ease-in-out;
 }
 
-header>p:hover {
+header > p:hover {
   letter-spacing: 2px;
   font-weight: lighter;
 }
@@ -45,9 +75,9 @@ nav {
   display: flex;
   justify-content: center;
   gap: 20px;
-  font-size: 24px;
-  font-weight: lighter;
+  font-weight: 300;
   text-transform: uppercase;
+  padding: 10px 0;
 }
 
 main {
@@ -56,39 +86,86 @@ main {
   max-width: 750px;
   margin: 15px auto;
   padding: 0 15px;
-  border-left: black 2px solid;
-  border-right: black 2px solid;
+  border-left: 2px solid;
+  border-right: 2px solid;
+}
+
+@media (max-width: 800px) {
+  main {
+    border-left: none;
+    border-right: none;
+  }
 }
 
 footer {
-  padding: 10px;
+  padding: 20px;
   text-align: center;
-  border-top: black 2px solid;
+  border-top: 2px solid;
+  font-weight: 300;
 }
 
 p {
-  line-height: 1.5;
+  line-height: 1.6;
+  font-size: 17px;
   font-weight: 400;
-  margin: 15px 0;
+  margin: 5px 0 15px 0;
+}
+
+h1,
+h2,
+h3 {
+  margin: 5px 0;
+}
+
+h1 {
+  font-size: 24px;
+}
+
+h2 {
+  font-size: 18px;
+}
+
+h3 {
+  font-size: 16px;
+  font-weight: lighter;
+  font-style: italic;
 }
 
 a {
-  color: black;
+  color: var(--text-color);
   text-decoration: none;
 }
 
 a:hover {
-  background-color: #111;
-  color: white;
+  background-color: var(--hover-bg);
+  color: var(--hover-text);
 }
 
 span.name {
-  background-color: #111;
-  color: white;
+  background-color: var(--hover-bg);
+  color: var(--hover-text);
 }
 
-footer>p {
-  font-weight: lighter;
+footer p {
   letter-spacing: -1px;
   margin: 5px auto;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+@media (max-width: 600px) {
+  main {
+    padding: 0 10px;
+  }
+
+  header {
+    font-size: 20px;
+    padding: 5px;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
 }
