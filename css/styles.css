@@ -9,7 +9,7 @@
 }
 
 [data-theme="dark"] {
-  --text-color: white;
+  --text-color: #ddd;
   --bg-color: #111;
   --border-color: white;
   --hover-bg: white;
@@ -31,6 +31,7 @@ body {
   font-family: "Noto Sans", sans-serif;
   overflow-y: auto;
   scroll-behavior: smooth;
+  transition: background-color 0.1s ease-in-out, color 0.3s ease-in-out;
 }
 
 body {
@@ -50,7 +51,6 @@ header {
   padding: 10px;
   font-size: 24px;
   border-bottom: 2px solid;
-  letter-spacing: -2px;
   text-align: center;
   line-height: 1.25;
 }
@@ -64,11 +64,22 @@ header > p {
   padding: 0 5px;
   border: 2px solid;
   transition: letter-spacing 0.2s ease-in-out, font-weight 0.3s ease-in-out;
+  letter-spacing: -1px;
 }
 
 header > p:hover {
-  letter-spacing: 2px;
+  letter-spacing: 3px;
   font-weight: lighter;
+}
+
+nav > a {
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out,
+    transform 0.2s ease-in-out;
+  letter-spacing: -2px;
+}
+
+nav > a:hover {
+  transform: translateY(-5px);
 }
 
 nav {
@@ -133,17 +144,21 @@ h3 {
 
 a {
   color: var(--text-color);
-  text-decoration: none;
+  text-decoration: underline;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out,
+    text-decoration 0.1s ease-in-out;
 }
 
 a:hover {
   background-color: var(--hover-bg);
   color: var(--hover-text);
+  text-decoration: none;
 }
 
 span.name {
   background-color: var(--hover-bg);
   color: var(--hover-text);
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
 footer p {
@@ -168,4 +183,115 @@ footer p {
     align-items: center;
     gap: 5px;
   }
+}
+
+.project-card {
+  border: 2px solid var(--border-color);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  padding: 15px;
+  margin: 15px 0;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out,
+    transform 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.project-card:hover {
+  background-color: var(--hover-bg);
+  color: var(--hover-text);
+  transform: translateY(-5px);
+}
+
+.project-card:hover a {
+  color: var(--hover-text);
+  border-color: var(--hover-text);
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
+}
+
+.project-title {
+  font-weight: bold;
+  flex-grow: 1;
+}
+
+.project-date {
+  font-weight: lighter;
+  opacity: 0.7;
+  white-space: nowrap;
+  margin-left: 10px;
+}
+
+.project-brief {
+  font-size: 16px;
+}
+
+.project-link {
+  font-weight: bold;
+  text-transform: uppercase;
+  display: inline-block;
+  border: 2px solid var(--border-color);
+  padding: 5px 10px;
+  text-decoration: none;
+}
+
+.blog-card {
+  border: 2px solid var(--border-color);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  padding: 15px;
+  margin: 15px 0;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out,
+    transform 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.blog-card:hover {
+  background-color: var(--hover-bg);
+  color: var(--hover-text);
+  transform: translateY(-5px);
+}
+
+.blog-card:hover a {
+  color: var(--hover-text);
+  border-color: var(--hover-text);
+}
+
+.blog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
+}
+
+.blog-title {
+  font-weight: bold;
+  flex-grow: 1;
+}
+
+.blog-date {
+  font-weight: lighter;
+  opacity: 0.7;
+  white-space: nowrap;
+  margin-left: 10px;
+}
+.blog-excerpt {
+  font-size: 16px;
+}
+
+.blog-link {
+  font-weight: bold;
+  text-transform: uppercase;
+  display: inline-block;
+  border: 2px solid var(--border-color);
+  padding: 5px 10px;
+  text-decoration: none;
 }
